@@ -17,6 +17,7 @@ import HamburgurIcon from "@/assets/icons/hamburger.svg?react";
 import InstagramIcon from "@/assets/icons/instagram.svg?react";
 import LinkdlenIcon from "@/assets/icons/linkedin.svg?react";
 import UsaIcon from "@/assets/icons/usa.svg?react";
+import CloseIcon from "@/assets/icons/close.svg?react";
 
 /* ----------------------------- Icon Map ----------------------------- */
 
@@ -37,6 +38,7 @@ const iconMap = {
   instagram: InstagramIcon,
   linkedin: LinkdlenIcon,
   usa: UsaIcon,
+  close: CloseIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

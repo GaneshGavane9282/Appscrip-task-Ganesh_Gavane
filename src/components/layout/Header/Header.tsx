@@ -5,7 +5,6 @@ import "./Header.css";
 
 const Header = () => {
   const { navLinks, headerIcons } = HEADER_DATA;
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMenu = useCallback(() => {
@@ -22,16 +21,18 @@ const Header = () => {
       <div className="top-bar">
         {/* ---- Left ---- */}
         <div className="nav-left">
-          {/* Hamburger (Mobile Only) */}
-          {isMobileMenuOpen && (
-            <button
-              className="hamburger-btn"
-              onClick={toggleMenu}
-              aria-label="Open menu"
-            >
-              <Icon name="logo" size={24} />
-            </button>
-          )}
+          {/* FIX: Removed {isMobileMenuOpen && ...} 
+             The button must always exist, CSS will hide it on Desktop.
+          */}
+          <button
+            className="hamburger-btn"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            {/* FIX: Use 'menu' icon, not 'logo' */}
+            <Icon name="hamburgur" size={24} />
+          </button>
 
           {/* Logo */}
           <div className="logo-icon">
@@ -54,7 +55,7 @@ const Header = () => {
             </button>
           ))}
 
-          {/* Desktop Only */}
+          {/* Desktop Only Elements (Hidden on Mobile via CSS) */}
           <button className="icon-btn desktop-only" aria-label="Profile">
             <Icon name="profile" size={24} />
           </button>
@@ -75,10 +76,11 @@ const Header = () => {
       </div>
 
       {/* ================= MOBILE OVERLAY ================= */}
+      {/* Only render overlay if open to save resources, or keep hidden via CSS */}
       <div
         className={`mobile-menu-overlay ${isMobileMenuOpen ? "open" : ""}`}
         onClick={closeMenu}
-        aria-hidden
+        aria-hidden="true"
       />
 
       {/* ================= MOBILE DRAWER ================= */}
@@ -92,7 +94,8 @@ const Header = () => {
           onClick={closeMenu}
           aria-label="Close menu"
         >
-          <Icon name="logo" size={24} />
+          {/* FIX: Use 'close' icon (X), not 'logo' */}
+          <Icon name="close" size={24} />
         </button>
 
         {navLinks.map(({ label, href }) => (

@@ -1,3 +1,8 @@
+/* =========================================
+   HEADER / NAVBAR STYLES
+   ========================================= */
+
+/* --- BASE CONTAINER --- */
 .navbar-container {
   width: 100%;
   background-color: var(--nav-bg);
@@ -8,6 +13,7 @@
   z-index: 1000;
 }
 
+/* --- TOP BAR (Logo, Icons, Hamburger) --- */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -18,6 +24,7 @@
   margin: 0 auto;
 }
 
+/* LEFT SECTION */
 .nav-left {
   flex: 1;
   display: flex;
@@ -25,8 +32,9 @@
   gap: 16px;
 }
 
+/* HAMBURGER BUTTON (Hidden on Desktop by default) */
 .hamburger-btn {
-  display: none;
+  display: none; /* <--- CRITICAL: Keeps it hidden on desktop */
   background: none;
   border: none;
   cursor: pointer;
@@ -41,6 +49,7 @@
   color: var(--text-main);
 }
 
+/* CENTER SECTION */
 .nav-center {
   flex: 1;
   display: flex;
@@ -56,6 +65,7 @@
   text-transform: uppercase;
 }
 
+/* RIGHT SECTION */
 .nav-right {
   flex: 1;
   display: flex;
@@ -89,6 +99,7 @@
   gap: 4px;
 }
 
+/* --- DESKTOP NAVIGATION LINKS --- */
 .bottom-nav {
   display: flex;
   justify-content: center;
@@ -185,19 +196,22 @@
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 768px) {
-  /* HIDE NAVBAR LINKS ON MOBILE */
+  /* 1. HIDE NAVBAR LINKS ON MOBILE */
   .bottom-nav {
     display: none;
   }
 
+  /* 2. HIDE DESKTOP ONLY ELEMENTS */
   .desktop-only {
     display: none !important;
   }
 
+  /* 3. SHOW HAMBURGER ON MOBILE */
   .hamburger-btn {
     display: flex;
   }
 
+  /* 4. ADJUST PADDING/SPACING */
   .top-bar {
     padding: 0 16px;
   }
