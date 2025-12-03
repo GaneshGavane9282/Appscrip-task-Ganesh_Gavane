@@ -52,7 +52,11 @@ const ProductGrid: FC = () => {
       {products.map((product) => (
         <div key={product.id} className="product-card">
           <div className="image-container">
-            <img src={product.image} alt={product.title} loading="lazy" />
+            <img
+              src={product.image}
+              alt={`Buy ${product.title} - ${product.category}`}
+              loading="lazy"
+            />
           </div>
 
           <div className="product-details">

@@ -69,7 +69,7 @@ const Header = () => {
       {/* ================= DESKTOP NAV ================= */}
       <div className="bottom-nav desktop-only">
         {navLinks.map(({ label, href }) => (
-          <a key={href} href={href} className="nav-link">
+          <a key={href} href={"#"} className="nav-link">
             {label}
           </a>
         ))}
