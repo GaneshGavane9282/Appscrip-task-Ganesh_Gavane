@@ -1,0 +1,30 @@
+/* Global App Styles */
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.content-layout {
+  display: flex;
+  gap: 30px; /* Space between Sidebar and Grid */
+  padding: 20px;
+  align-items: flex-start; /* Ensures sidebar stays at top */
+}
+
+.grid-container {
+  flex: 1; /* Takes all available remaining width */
+  width: 100%; /* Ensures grid behaves inside flex child */
+}
+
+/* Responsive Tweak for Mobile */
+@media (max-width: 768px) {
+  .content-layout {
+    flex-direction: column; /* Stack them vertically on mobile */
+    padding: 10px;
+    gap: 0;
+  }
+
+  /* On mobile, usually the sidebar becomes a drawer or full width */
+  /* Since we are just hiding/showing it based on state, the flex-col handles stacking */
+}

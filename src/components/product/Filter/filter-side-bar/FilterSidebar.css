@@ -1,0 +1,102 @@
+.filter-sidebar {
+  width: 300px;
+  min-width: 300px;
+  border-right: 1px solid #e5e5e5; /* Optional border */
+  padding-right: 20px;
+  background: #fff;
+  font-family: "Inter", sans-serif;
+
+  /* Transition for smooth show/hide */
+  transition: all 0.3s ease;
+}
+
+.filter-sidebar.hidden {
+  display: none;
+}
+
+/* --- CUSTOMIZABLE CHECKBOX --- */
+.customizable-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.customizable-option input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* --- ACCORDION ITEM --- */
+.filter-item {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px 0;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-title {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+.filter-subtitle {
+  font-size: 14px;
+  color: #333;
+  margin-top: 5px;
+}
+
+/* --- DROPDOWN CONTENT --- */
+.filter-content {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter-option input {
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

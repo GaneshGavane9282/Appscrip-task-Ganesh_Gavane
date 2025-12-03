@@ -1,0 +1,236 @@
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 60px 20px 30px; /* Top L/R Bottom */
+  font-family: "Inter", sans-serif;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TOP SECTION --- */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Left: Subscribe */
+.subscribe-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.subscribe-text {
+  font-size: 14px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 15px;
+}
+
+.subscribe-input {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 14px;
+  border: 1px solid var(--footer-border);
+  background: #fff;
+  color: #333;
+  outline: none;
+}
+
+.subscribe-btn {
+  padding: 12px 30px;
+  background: transparent;
+  color: var(--footer-text);
+  border: 1px solid var(--footer-text);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+
+.subscribe-btn:hover {
+  background: var(--footer-text);
+  color: var(--footer-bg);
+}
+
+/* Right: Contact & Currency */
+.footer-info {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.contact-details p {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: var(--footer-text);
+}
+
+.currency-section p {
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.currency-note {
+  font-size: 12px;
+  color: var(--footer-text);
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+.flag-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* --- DIVIDER --- */
+.footer-divider {
+  border: none;
+  border-top: 1px solid var(--footer-border);
+  margin-bottom: 40px;
+  opacity: 0.3;
+}
+
+/* --- BOTTOM SECTION (Links) --- */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-heading-lg {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.footer-heading-sm {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--footer-text);
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+/* Socials & Payments */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--footer-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.payment-methods {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.payment-icon {
+  width: 48px;
+  height: 30px;
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-icon img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* --- COPYRIGHT --- */
+.footer-copyright {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 14px;
+  color: var(--footer-text);
+  opacity: 0.8;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-btn {
+    width: 100%;
+  }
+}

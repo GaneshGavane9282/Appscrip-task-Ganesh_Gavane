@@ -1,0 +1,219 @@
+/* --- MAIN CONTAINER --- */
+.navbar-container {
+  width: 100%;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  position: sticky; /* Keeps navbar at top when scrolling */
+  top: 0;
+  z-index: 100;
+}
+
+/* --- TOP ROW (Logo, Search, Icons) --- */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--nav-height-top);
+  padding: 0 40px; /* Desktop padding */
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* 1. Left Section */
+.nav-left {
+  flex: 1; /* Takes 1/3 of space */
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hamburger-btn {
+  display: none; /* Hidden on Desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-main);
+}
+
+/* 2. Center Section */
+.nav-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--text-main);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 3. Right Section */
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  transition: opacity 0.2s ease;
+}
+
+.icon-btn:hover {
+  opacity: 0.6;
+}
+
+.lang-selector {
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --- BOTTOM ROW (Desktop Navigation Links) --- */
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--nav-height-bottom);
+  gap: 60px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Hover effect for links */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--text-main);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* --- MOBILE DRAWER & OVERLAY --- */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Hidden off-screen to the left */
+  width: 85%;
+  max-width: var(--drawer-width);
+  height: 100vh;
+  background-color: #fff;
+  z-index: 999;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth slide effect */
+}
+
+.mobile-drawer.open {
+  left: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  align-self: flex-start; /* Aligns 'X' to top left */
+  cursor: pointer;
+  padding: 8px;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+.mobile-link {
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  text-transform: uppercase;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet & Mobile (Below 768px) */
+@media (max-width: 768px) {
+  /* 1. Hide Desktop-only elements */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* 2. Show Mobile-only elements */
+  .hamburger-btn {
+    display: block; /* Reveal hamburger */
+  }
+
+  /* 3. Adjust spacing */
+  .top-bar {
+    padding: 0 16px; /* Smaller side padding */
+  }
+
+  .nav-right {
+    gap: 16px; /* Tighter icon spacing */
+  }
+
+  .logo-text {
+    font-size: 20px; /* Slightly smaller logo text */
+  }
+}

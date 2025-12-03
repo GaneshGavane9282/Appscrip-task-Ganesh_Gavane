@@ -1,0 +1,32 @@
+:root {
+  /* ---------- Layout ---------- */
+  --nav-height-top: 60px;
+  --nav-height-bottom: 50px;
+  --drawer-width: 300px;
+
+  /* ---------- Base Colors ---------- */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ---------- Gray Scale ---------- */
+  --color-gray-100: #f4f4f4;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #b5b5b5;
+  --color-gray-400: #888888;
+  --color-gray-500: #666666;
+  --color-gray-600: #333333;
+
+  /* ---------- Semantic Mappings ---------- */
+  --nav-bg: var(--color-white);
+  --nav-border: var(--color-gray-200);
+
+  --text-main: var(--color-black);
+  --text-muted: var(--color-gray-500);
+
+  --footer-bg: var(--color-black);
+  --footer-text: var(--color-white);
+  --footer-border: var(--color-white);
+  --footer-gray: var(--color-gray-300);
+
+  --image-placeholder-bg: var(--color-gray-100);
+}
