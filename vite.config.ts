@@ -5,7 +5,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [
-    react(),   // ✅ NO custom babel plugins
+    react(),
     svgr()
   ],
 

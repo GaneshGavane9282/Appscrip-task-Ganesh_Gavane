@@ -110,7 +110,7 @@ const Footer = () => {
 
         {/* ================= COPYRIGHT ================= */}
         <div className="footer-copyright">
-          Copyright © 2023 mettamuse. All rights reserved.
+          Copyright © 2025 mettamuse. All rights reserved.
         </div>
       </div>
     </footer>

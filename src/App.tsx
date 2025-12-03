@@ -1,16 +1,8 @@
-import { useState } from "react";
 import "./App.css";
 import SEO from "@/components/SEO/SEO";
-import Header from "./components/layout/Header/Header";
-import Hero from "./components/layout/Hero/Hero";
-import FilterBar from "./components/product/Filter/filter-bar/FilterBar";
-import FilterSidebar from "./components/product/Filter/filter-side-bar/FilterSidebar";
-import ProductGrid from "./components/product/product-grid/ProductGrid";
-import Footer from "./components/layout/Footer/Footer";
+import Page from "./Page";
 
 function App() {
-  const [isFilterVisible, setIsFilterVisible] = useState(true);
-
   // SEO Schema for a Product Listing Page (CollectionPage)
   // Ideally, this data comes from your API, but here's the structure
   const plpSchema = {
@@ -46,31 +38,7 @@ function App() {
         url="https://easyclickshop.netlify.app/"
         schema={plpSchema}
       />
-
-      <Header />
-
-      {/* Semantic HTML: Main content wrapper */}
-      <main className="main-container">
-        <Hero />
-
-        <FilterBar
-          isFilterVisible={isFilterVisible}
-          onToggle={() => setIsFilterVisible(!isFilterVisible)}
-        />
-
-        <div className="content-layout">
-          <FilterSidebar isVisible={isFilterVisible} />
-
-          <div className="grid-container">
-            {/* Semantic HTML: Product List Section */}
-            <section aria-label="Product List">
-              <ProductGrid />
-            </section>
-          </div>
-        </div>
-      </main>
-
-      <Footer />
+      <Page />
     </div>
   );
 }

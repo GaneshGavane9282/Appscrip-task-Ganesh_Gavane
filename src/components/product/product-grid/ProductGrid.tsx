@@ -1,6 +1,7 @@
 import { useState, useEffect, type FC } from "react";
 import "./ProductGrid.css";
 import { Icon } from "@/components/common/Icon/Icon";
+import { useWishlist } from "@/context/useWishlist";
 
 interface Product {
   id: number;
@@ -19,6 +20,9 @@ const ProductGrid: FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Use the context hook
+  const { isWishlisted, toggleWishlist } = useWishlist();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,34 +51,58 @@ const ProductGrid: FC = () => {
     return <div className="error-state">Error: {error}</div>;
   }
 
+  if (products.length === 0) {
+    return <div className="no-products-state">No Products Available</div>;
+  }
+
   return (
     <div className="product-grid">
-      {products.map((product) => (
-        <div key={product.id} className="product-card">
-          <div className="image-container">
-            <img
-              src={product.image}
-              alt={`Buy ${product.title} - ${product.category}`}
-              loading="lazy"
-            />
-          </div>
+      {products.map((product) => {
+        const isLiked = isWishlisted(product.id);
 
-          <div className="product-details">
-            <h3 className="product-title" title={product.title}>
-              {product.title}
-            </h3>
-
-            <div className="product-info">
-              <span className="product-price">
-                Sign in or Create an account to see pricing
-              </span>
-              <button className="favorite-btn" aria-label="Add to wishlist">
-                <Icon name="heart" size={20} />
-              </button>
+        return (
+          <article key={product.id} className="product-card">
+            {" "}
+            {/* Use <article> for items */}
+            <div className="image-container">
+              <img
+                src={product.image}
+                alt={`Buy ${product.title} - ${product.category}`} // Keyword-rich Alt Text
+                loading="lazy"
+              />
             </div>
-          </div>
-        </div>
-      ))}
+            <div className="product-details">
+              {/* Use H2 or H3 for product titles, never H1 (reserved for page title) */}
+              <h3 className="product-title" title={product.title}>
+                {product.title}
+              </h3>
+
+              <div className="product-info">
+                <span className="product-price">
+                  <a href="#">Sign in</a> or Create an account to see pricing
+                </span>
+                <button
+                  className="favorite-btn"
+                  aria-label={
+                    isLiked ? "Remove from wishlist" : "Add to wishlist"
+                  }
+                  onClick={() => toggleWishlist(product.id)}
+                >
+                  <Icon
+                    name="heart"
+                    size={20}
+                    style={{
+                      fill: isLiked ? "red" : "none",
+                      color: isLiked ? "red" : "inherit",
+                      transition: "fill 0.3s ease",
+                    }}
+                  />
+                </button>
+              </div>
+            </div>
+          </article>
+        );
+      })}
     </div>
   );
 };

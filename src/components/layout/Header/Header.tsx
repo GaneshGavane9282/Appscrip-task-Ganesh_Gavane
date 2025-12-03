@@ -2,10 +2,14 @@ import { Icon } from "@/components/common/Icon/Icon";
 import { HEADER_DATA } from "@/constants/constants";
 import { memo, useCallback, useState } from "react";
 import "./Header.css";
+import { useWishlist } from "@/context/useWishlist";
 
 const Header = () => {
   const { navLinks, headerIcons } = HEADER_DATA;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Get count from context
+  const { wishlistCount } = useWishlist();
 
   const toggleMenu = useCallback(() => {
     setIsMobileMenuOpen((prev) => !prev);
@@ -17,20 +21,14 @@ const Header = () => {
 
   return (
     <nav className="navbar-container">
-      {/* ================= TOP BAR ================= */}
       <div className="top-bar">
-        {/* ---- Left ---- */}
         <div className="nav-left">
-          {/* FIX: Removed {isMobileMenuOpen && ...} 
-             The button must always exist, CSS will hide it on Desktop.
-          */}
           <button
             className="hamburger-btn"
             onClick={toggleMenu}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
-            {/* FIX: Use 'menu' icon, not 'logo' */}
             <Icon name="hamburgur" size={24} />
           </button>
 
@@ -40,22 +38,24 @@ const Header = () => {
           </div>
         </div>
 
-        {/* ---- Center ---- */}
         <div className="nav-center">
           <a href="/" className="logo-text">
             LOGO
           </a>
         </div>
 
-        {/* ---- Right ---- */}
         <div className="nav-right">
           {headerIcons.map(({ name, label }) => (
             <button key={name} className="icon-btn" aria-label={label}>
               <Icon name={name} size={24} />
+
+              {/* SHOW COUNT BADGE IF NAME IS HEART */}
+              {name === "heart" && wishlistCount > 0 && (
+                <span className="icon-badge">{wishlistCount}</span>
+              )}
             </button>
           ))}
 
-          {/* Desktop Only Elements (Hidden on Mobile via CSS) */}
           <button className="icon-btn desktop-only" aria-label="Profile">
             <Icon name="profile" size={24} />
           </button>
@@ -94,10 +94,8 @@ const Header = () => {
           onClick={closeMenu}
           aria-label="Close menu"
         >
-          {/* FIX: Use 'close' icon (X), not 'logo' */}
           <Icon name="close" size={24} />
         </button>
-
         {navLinks.map(({ label, href }) => (
           <a key={href} href={href} className="mobile-link" onClick={closeMenu}>
             {label}
