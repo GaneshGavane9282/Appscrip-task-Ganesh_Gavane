@@ -50,8 +50,8 @@
   padding: 12px 15px;
   font-size: 14px;
   border: 1px solid var(--footer-border);
-  background: #fff;
-  color: #333;
+  background: var(--color-white);
+  color: var(--color-gray-600);
   outline: none;
 }
 
@@ -185,7 +185,7 @@
 }
 
 .social-icon:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color-white-20);
 }
 
 .payment-methods {
@@ -197,7 +197,7 @@
 .payment-icon {
   width: 48px;
   height: 30px;
-  background: #fff;
+  background: var(--color-white);
   border-radius: 4px;
   display: flex;
   align-items: center;

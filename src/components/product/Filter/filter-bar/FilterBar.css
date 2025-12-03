@@ -3,13 +3,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  margin: 0 20px; /* Aligns with container padding */
-  font-family: "Inter", sans-serif;
+  border-top: 1px solid var(--color-gray-200);
+  border-bottom: 1px solid var(--color-gray-200);
+  margin: 0 20px;
 }
 
-/* --- LEFT SECTION --- */
 .filter-left {
   display: flex;
   align-items: center;
@@ -31,12 +29,12 @@
   align-items: center;
   gap: 8px;
   font-size: 16px;
-  color: #888; /* Gray color for the link */
-  text-decoration: underline; /* Matches the visual style */
+  color: var(--color-gray-400);
+  text-decoration: underline;
 }
 
 .filter-toggle:hover {
-  color: #000;
+  color: var(--color-black);
 }
 
 .arrow-icon {
@@ -44,7 +42,6 @@
   align-items: center;
 }
 
-/* --- RIGHT SECTION --- */
 .filter-right {
   display: flex;
   align-items: center;
@@ -63,10 +60,9 @@
   text-transform: uppercase;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .item-count {
-    display: none; /* Often hidden on mobile to save space */
+    display: none;
   }
 
   .filter-toggle {

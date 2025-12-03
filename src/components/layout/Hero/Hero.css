@@ -1,43 +1,41 @@
-/* src/components/Hero.css */
 .hero-section {
-  background-color: #fff; /* White background as seen in the image */
-  padding: 60px 20px; /* Padding to give it space */
-  text-align: center; /* Center all text */
+  background-color: var(--color-white);
+  padding: 60px 20px;
+  text-align: center;
 }
 
 .hero-container {
-  max-width: 800px; /* Limit width for better readability */
-  margin: 0 auto; /* Center the container horizontally */
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-title {
-  font-size: 36px; /* Large font for the main title */
-  font-weight: 400; /* Regular weight */
-  margin-bottom: 20px; /* Space below the title */
-  letter-spacing: 1px; /* Slight letter spacing for a modern look */
-  color: #000; /* Black text color */
-  text-transform: uppercase; /* Uppercase text */
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  color: var(--color-black);
+  text-transform: uppercase;
 }
 
 .hero-description {
-  font-size: 18px; /* Font size for the description */
-  line-height: 1.6; /* Good line height for readability */
-  color: #333; /* Slightly lighter black for the description */
-  max-width: 600px; /* Limit width for the description */
-  margin: 0 auto; /* Center the description */
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-gray-600);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Responsive adjustments for mobile devices */
 @media (max-width: 768px) {
   .hero-section {
-    padding: 40px 20px; /* Less padding on mobile */
+    padding: 40px 20px;
   }
 
   .hero-title {
-    font-size: 28px; /* Smaller font size for the title on mobile */
+    font-size: 28px;
   }
 
   .hero-description {
-    font-size: 16px; /* Smaller font size for the description on mobile */
+    font-size: 16px;
   }
 }
