@@ -8,11 +8,8 @@ interface FilterBarProps {
 }
 
 const FilterBar: FC<FilterBarProps> = ({ isFilterVisible, onToggle }) => {
-  // State to toggle filter visibility
-
   return (
     <div className="filter-bar">
-      {/* Left Side: Count & Toggle */}
       <div className="filter-left">
         <span className="item-count">3425 ITEMS</span>
 

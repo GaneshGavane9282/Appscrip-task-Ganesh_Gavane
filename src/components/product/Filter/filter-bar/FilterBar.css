@@ -59,7 +59,8 @@
 
 @media (max-width: 768px) {
   /* HIDE ITEMS COUNT ON MOBILE */
-  .item-count {
+  .item-count,
+  .arrow-icon {
     display: none;
   }
 

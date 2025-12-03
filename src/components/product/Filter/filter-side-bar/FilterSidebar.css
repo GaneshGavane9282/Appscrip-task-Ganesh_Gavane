@@ -100,3 +100,13 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  .filter-sidebar {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+}
