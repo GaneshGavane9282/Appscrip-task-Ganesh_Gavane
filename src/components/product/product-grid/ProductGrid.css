@@ -1,60 +1,80 @@
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
   width: 100%;
   padding-bottom: 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  row-gap: 30px; /* More vertical breathing room */
 }
 
+/* TABLET */
 @media (min-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
   }
 }
 
+/* DESKTOP */
 @media (min-width: 1024px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Auto-fit: Fits 4 cols normally, 3 if sidebar is open */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
   }
 }
 
+/* 2. CARD CONTAINER */
 .product-card {
   display: flex;
   flex-direction: column;
   background: var(--color-white);
   height: 100%;
-}
-
-.image-container {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background-color: var(--color-gray-100);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 12px;
   position: relative;
 }
 
+/* 3. IMAGE CONTAINER (The Fix) */
+.image-container {
+  width: 100%;
+  position: relative;
+
+  /* Force a Portrait Aspect Ratio (3:4) */
+  /* This ensures every single product card image area is the exact same shape */
+  aspect-ratio: 3 / 4;
+
+  background-color: var(--color-gray-100);
+  overflow: hidden;
+  margin-bottom: 12px;
+  display: block; /* Ensures aspect-ratio works reliably */
+}
+
+/* 4. THE IMAGE ITSELF */
 .image-container img {
+  position: absolute; /* Takes image out of flow so it doesn't stretch container */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+
+  /* 'contain' ensures the whole product is seen. 
+     'cover' would cut off edges but fill the box. */
   object-fit: contain;
-  padding: 20px;
-  mix-blend-mode: multiply;
+
   transition: transform 0.3s ease;
+  z-index: 1;
 }
 
 .product-card:hover .image-container img {
   transform: scale(1.05);
 }
 
+/* 5. TEXT CONTENT */
 .product-details {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  justify-content: space-between;
+  flex-grow: 1; /* Pushes content to fill height if needed */
+  gap: 8px;
 }
 
 .product-title {
@@ -62,9 +82,13 @@
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: #000;
   margin: 0;
-  white-space: nowrap;
+
+  /* Clean text truncation */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -73,7 +97,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .product-price {
@@ -82,25 +106,34 @@
   line-height: 1.4;
 }
 
+.product-price a {
+  color: var(--color-gray-400);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .favorite-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
-  color: var(--color-black);
+  color: #000;
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 
-.favorite-btn:hover {
-  opacity: 0.7;
-}
+/* MOBILE TYPOGRAPHY TWEAKS */
+@media (max-width: 480px) {
+  .product-grid {
+    gap: 10px;
+  }
 
-.loading-state,
-.error-state {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 40px;
-  font-size: 18px;
-  color: var(--color-gray-500);
+  .product-title {
+    font-size: 12px;
+  }
+
+  .product-price {
+    font-size: 10px;
+  }
 }
